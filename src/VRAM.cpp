@@ -6,7 +6,7 @@ short VRAM[128][128];
 short COLORS[16] = {0x0000, 0x001F, 0x03E0, 0x03FF, 0x7C00, 0x7C1F, 0x7FE0, 0x7FFF, 0xF800, 0xF81F, 0xFBE0, 0xFBFF, 0xFFE0, 0xFFE0, 0xFFFF, 0x0000};
 
 void DrawVRAM() {
-
+    return;
 }
 
 void ClearVRAM() {
@@ -74,7 +74,7 @@ void DrawLine(short x1, short y1, short x2, short y2, short color) {
         std::cout << "Error: Color out of bounds" << std::endl;
         return;
     }
-    
+
     short dx = x2 - x1;
     short dy = y2 - y1;
     short steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
