@@ -14,14 +14,14 @@ int main(int, char**) {
     SetPixels(60, 0, 10, 10, 6);
     SetPixels(70, 0, 10, 10, 7);
 
-    SetPixels(0, 10, 10, 20, 8);
-    SetPixels(10, 10, 10, 20, 9);
-    SetPixels(20, 10, 10, 20, 10);
-    SetPixels(30, 10, 10, 20, 11);
-    SetPixels(40, 10, 10, 20, 12);
-    SetPixels(50, 10, 10, 20, 13);
-    SetPixels(60, 10, 10, 20, 14);
-    SetPixels(70, 10, 10, 20, 15);
+    SetPixels(0, 10, 10, 10, 8);
+    SetPixels(10, 10, 10, 10, 9);
+    SetPixels(20, 10, 10, 10, 10);
+    SetPixels(30, 10, 10, 10, 11);
+    SetPixels(40, 10, 10, 10, 12);
+    SetPixels(50, 10, 10, 10, 13);
+    SetPixels(60, 10, 10, 10, 14);
+    SetPixels(70, 10, 10, 10, 15);
 
     SaveVRAM();
 }
