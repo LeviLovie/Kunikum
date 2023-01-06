@@ -2,13 +2,11 @@
 #include <iostream>
 #include <cmath>
 
-short VRAM[128][128];
-short COLORS[16] = {0x0000, 0x001F, 0x03E0, 0x03FF, 0x7C00, 0x7C1F, 0x7FE0, 0x7FFF, 0xF800, 0xF81F, 0xFBE0, 0xFBFF, 0xFFE0, 0xFFE0, 0xFFFF, 0x0000};
+#include "VRAM.h"
 
-void DrawVRAM() {
-    
-    return;
-}
+short VRAM[128][128];
+// short COLORS[16] = {0x0000, 0x001F, 0x03E0, 0x03FF, 0x7C00, 0x7C1F, 0x7FE0, 0x7FFF, 0xF800, 0xF81F, 0xFBE0, 0xFBFF, 0xFFE0, 0xFFE0, 0xFFFF, 0x0000};
+int COLORS[16] = {0xFFFFFFFF, 0xFFFF00FF, 0xFF00FFFF, 0xFF0000FF, 0xC0C0C0FF, 0x808080FF, 0x808000FF, 0x800080FF, 0x800000FF, 0x00FFFFFF, 0x00FF00FF, 0x008080FF, 0x008000FF, 0x0000FFFF, 0x000080FF, 0x000000FF};
 
 void ClearVRAM() {
     for (short x = 0; x < 128; x++) {
@@ -16,6 +14,16 @@ void ClearVRAM() {
             VRAM[x][y] = 0;
         }
     }
+}
+void SaveVRAM() {
+    sf::Image image;
+    image.create(128, 128);
+    for (short x = 0; x < 128; x++) {
+        for (short y = 0; y < 128; y++) {
+            image.setPixel(x, y, sf::Color(COLORS[VRAM[x][y]]));
+        }
+    }
+    image.saveToFile("VRAM.png");
 }
 void SetPixel(short x, short y, short color) {
     if (x < 128 && y < 128 && x >= 0 && y >= 0) {

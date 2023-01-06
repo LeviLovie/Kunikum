@@ -6,10 +6,10 @@ enable_testing()
 
 set(CPP
     src/main.cpp
-    src/onload.cpp
+    src/VRAM.cpp
 )
 set(H
-    src/onload.h
+    src/VRAM.h
 )
 
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)

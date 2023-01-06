@@ -169,12 +169,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/onload.cpp",
+			"path" : "src/VRAM.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/onload.h",
+			"path" : "src/VRAM.h",
 			"sourceGroupIndex" : 1
 		}
 	],
