@@ -73,6 +73,24 @@ void SetSprite(short posX, short posY, short** sprite) {
         }
     }
 }
+void DrawColorPallete() {
+    SetPixels(0, 0, 10, 10, 0);
+    SetPixels(0, 10, 10, 10, 4);
+    SetPixels(10, 0, 10, 10, 9);
+    SetPixels(10, 10, 10, 10, 11);
+    SetPixels(20, 0, 10, 10, 1);
+    SetPixels(20, 10, 10, 10, 6);
+    SetPixels(30, 0, 10, 10, 10);
+    SetPixels(30, 10, 10, 10, 12);
+    SetPixels(40, 0, 10, 10, 2);
+    SetPixels(40, 10, 10, 10, 7);
+    SetPixels(50, 0, 10, 10, 3);
+    SetPixels(50, 10, 10, 10, 8);
+    SetPixels(60, 0, 10, 10, 13);
+    SetPixels(60, 10, 10, 10, 14);
+    SetPixels(70, 0, 10, 10, 15);
+    SetPixels(70, 10, 10, 10, 5);
+}
 void DrawLine(short x1, short y1, short x2, short y2, short color) {
     if (x1 < 0 || x1 > 127 || x2 < 0 || x2 > 127 || y1 < 0 || y1 > 127 || y2 < 0 || y2 > 127) {
         std::cout << "Error: Line out of bounds" << std::endl;

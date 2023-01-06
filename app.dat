@@ -1,0 +1,11 @@
+ENGINE INIT():
+    # This is the first function called when the game starts.
+    # It is used to set up the game.
+
+ENGINE UPDATE():
+    # This is the function that is called every frame, befor the draw function.
+    # It is used to update the game.
+
+ENGINE DRAW():
+    # This is the function that is called every frame.
+    # It is used to draw the game.
