@@ -1,0 +1,38 @@
+// std::ifstream infile(FileName);
+// std::string line;
+// std::string newline;
+
+// std::string method = "INIT"
+// int step = 0;
+// int lineNumber = 0;
+
+// while (getline(infile, line)) {
+//     lineNumber++;
+    // std::cout << lineNumber << " - " << line << std::endl;
+    // lineNumber++;
+
+    // std::cout << "test" << std::endl;
+    // if (line.find("#") == 0) {
+    //     continue;
+    // } else {
+    //     std::cout << "test2" << std::endl;
+    //     if (line.find("}") == 0) {
+    //         if (step > 0) {
+    //             step--;
+    //         } else {
+    //             std::cout << ErrorColor << lineNumber << " - Doesn't statement to close" << ResetColor << std::endl;
+    //         }
+    //     } else if (line.find("ENGINE") == 0) {
+    //         newline = line.substr(6);
+    //         line = newline;
+    //         if (line.find("INIT" == 0)) {
+    //             newline = line.substr(4);
+    //             if (newline == "() {") {
+    //                 step++;
+    //             }
+    //         }
+    //     } else {
+    //         std::cout << WarnColor << lineNumber << " - Unknow line syntax: " << line << ResetColor << std::endl;
+    //     }
+    // }
+// }

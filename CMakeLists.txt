@@ -7,9 +7,11 @@ enable_testing()
 set(CPP
     src/main.cpp
     src/VRAM.cpp
+    src/reading.cpp
 )
 set(H
     src/VRAM.h
+    src/reading.h
 )
 
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)

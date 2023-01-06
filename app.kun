@@ -1,0 +1,14 @@
+ENGINE INIT() {
+    LOG("HELLO, WORLD!");
+#        ^ Text
+    VRAM.SET(85, 25, 4);
+#            ^ X |pos|ition
+#                ^ Y |position
+#                    ^ Color
+    VRAM.RECTSET(90, 20, 20, 20, 5);
+#                ^ X |pos|iti|on  |
+#                    ^ Y |pos|itio|n
+#                        ^ Wi|dth |
+#                            ^ Hei|ght
+#                                 ^ Color
+}
