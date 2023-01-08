@@ -3,3 +3,4 @@
 #include <string>
 
 void CompileFile(std::string FileName);
+void Update();
