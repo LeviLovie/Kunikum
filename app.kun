@@ -1,4 +1,6 @@
 ENGINE INIT() {
+  SETFPS(5);
+  #     ^ FPS
   LOG("HELLO, WORLD!");
   #    ^ Text
   VRAM.SET(85, 25, 4);
@@ -38,6 +40,7 @@ ENGINE INIT() {
   VRAM.RECTSET(60, 90, 10, 10, 11);
 }
 
-# ENGINE UPDATE() {
-  # ...
-# }
+ENGINE UPDATE() {
+  LOG("IT'S UPDATE FUNCTION!");
+  VRAM.RECTSET(90, 50, 20, 20, 5);
+}
