@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cmath>
+#include <string>
 
 #include "VRAM.h"
 
@@ -73,6 +74,19 @@ void SetSprite(short posX, short posY, short** sprite) {
         }
     }
 }
+// void LogToVRAM(std::string text, short posX, short posY, short color) {
+//     for (short i = 0; i < text.length(); i++) {
+//         if (text[i] == ' ') {
+//             posX += 4;
+//         } else if (text[i] == '\n') {
+//             posY += 8;
+//             posX = 0;
+//         } else {
+//             SetSprite(posX, posY, CHARACTERS[text[i]]);
+//             posX += 4;
+//         }
+//     }
+// }
 void DrawColorPallete() {
     SetPixels(0, 0, 10, 10, 0);
     SetPixels(0, 10, 10, 10, 4);

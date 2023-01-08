@@ -1,14 +1,46 @@
 ENGINE INIT() {
-    LOG("HELLO, WORLD!");
-#        ^ Text
-    VRAM.SET(85, 25, 4);
-#            ^ X |pos|ition
-#                ^ Y |position
-#                    ^ Color
-    VRAM.RECTSET(90, 20, 20, 20, 5);
-#                ^ X |pos|iti|on  |
-#                    ^ Y |pos|itio|n
-#                        ^ Wi|dth |
-#                            ^ Hei|ght
-#                                 ^ Color
+  SETFPS(5);
+  #     ^ FPS
+  LOG("HELLO, WORLD!");
+  #    ^ Text
+  VRAM.SET(85, 25, 4);
+  #        ^ X |pos|ition
+  #            ^ Y |position
+  #                ^ Color
+  VRAM.RECTSET(90, 20, 20, 20, 5);
+  #            ^ X |pos|iti|on |
+  #                ^ Y |pos|iti|on
+  #                    ^ Wi|dth|
+  #                        ^ He|ight
+  #                            ^ Color
+
+  VRAM.RECTSET(50, 40, 10, 10, 1);
+  VRAM.RECTSET(60, 40, 10, 10, 1);
+  VRAM.RECTSET(50, 30, 10, 10, 6);
+  VRAM.RECTSET(60, 30, 10, 10, 6);
+
+  VRAM.RECTSET(53, 43, 4, 4, 12);
+  VRAM.RECTSET(63, 43, 4, 4, 12);
+
+  VRAM.RECTSET(50, 50, 10, 10, 2);
+  VRAM.RECTSET(60, 50, 10, 10, 2);
+  VRAM.RECTSET(50, 60, 10, 10, 2);
+  VRAM.RECTSET(60, 60, 10, 10, 2);
+  VRAM.RECTSET(50, 70, 10, 10, 2);
+  VRAM.RECTSET(60, 70, 10, 10, 2);
+
+  VRAM.RECTSET(40, 50, 10, 10, 8);
+  VRAM.RECTSET(70, 50, 10, 10, 8);
+  VRAM.RECTSET(40, 60, 10, 10, 8);
+  VRAM.RECTSET(70, 60, 10, 10, 8);
+
+  VRAM.RECTSET(50, 80, 10, 10, 11);
+  VRAM.RECTSET(60, 80, 10, 10, 11);
+  VRAM.RECTSET(50, 90, 10, 10, 11);
+  VRAM.RECTSET(60, 90, 10, 10, 11);
+}
+
+ENGINE UPDATE() {
+  LOG("IT'S UPDATE FUNCTION!");
+  VRAM.RECTSET(90, 50, 20, 20, 5);
 }
