@@ -11,5 +11,5 @@ It's simulation of old console. You can code games in this app, and it's open fo
   - Set/Get matrix of pixels as color
   - Set/Get matrix of pixels, as sprite
   
-  ## Credits
+## Credits
 - Font: monogram by "Vinícius Menézio", https://datagoblin.itch.io/monogram
