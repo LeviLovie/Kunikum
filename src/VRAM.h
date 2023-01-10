@@ -11,4 +11,4 @@ void SetPixels(short posX, short posY, short width, short height, short color);
 void SetSprite(short posX, short posY, short** sprite);
 void DrawColorPallete();
 void DrawLine(short x1, short y1, short x2, short y2, short color);
-void WriteText(std::string text, short posX, short posY, int scale, short color);
+void WriteText(std::string text, short posX, short posY, int scale, int color);

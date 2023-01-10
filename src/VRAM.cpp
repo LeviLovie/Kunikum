@@ -99,19 +99,6 @@ void WriteText(std::string text, short posX, short posY, int scale, int color) {
         }
     }
 }
-// void LogToVRAM(std::string text, short posX, short posY, short color) {
-//     for (short i = 0; i < text.length(); i++) {
-//         if (text[i] == ' ') {
-//             posX += 4;
-//         } else if (text[i] == '\n') {
-//             posY += 8;
-//             posX = 0;
-//         } else {
-//             SetSprite(posX, posY, CHARACTERS[text[i]]);
-//             posX += 4;
-//         }
-//     }
-// }
 void DrawColorPallete() {
     int addX = 25;
 
