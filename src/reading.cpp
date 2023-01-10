@@ -135,6 +135,15 @@ void Init() {
             step = WorkOnLine(initCommands[i], "INIT", i, step);
         }
     }
+
+    // WriteText("0123456789", 0, 0, 4);
+    // WriteText("ABCDEFGHIJ", 0, 25, 4);
+    // WriteText("KLMNOPQRST", 0, 50, 4);
+    // WriteText("UVWXYZ", 0, 75, 4);
+    // WriteText("!\"#$%&'()*", 0, 100, 4);
+    // WriteText("+,-./:;<=>", 0, 125, 4);
+    // WriteText("?@[\\]^_`{|", 0, 150, 4);
+    // WriteText("}~", 0, 175, 4);
 }
 
 void Update() {
@@ -202,6 +211,19 @@ int WorkOnLine(std::string line, std::string method, int lineNumber, int step) {
                     arg++;
                 }
                 SetPixels(args[0], args[1], args[2], args[3], args[4]);
+            } else {
+                std::cout << WarnColor << lineNumber << ":(INIT) - function end missing: \"" << line << "\"" << ResetColor << std::endl;
+            }
+        } else {
+            std::cout << WarnColor << lineNumber << ":(INIT) - function start missing: \"" << line << "\"" << ResetColor << std::endl;
+        }
+    } else if (line.find("VRAM.COLORS") == 0) {
+        newline = line.substr(11);
+         if (newline.find("(") == 0) {
+            newline = newline.substr(1);
+            if (newline.find(");") == newline.length() - 2) {
+                newline = newline.substr(0, newline.length() - 2);
+                DrawColorPallete();
             } else {
                 std::cout << WarnColor << lineNumber << ":(INIT) - function end missing: \"" << line << "\"" << ResetColor << std::endl;
             }

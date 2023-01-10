@@ -74,6 +74,31 @@ void SetSprite(short posX, short posY, short** sprite) {
         }
     }
 }
+void WriteText(std::string text, short posX, short posY, int scale, int color) {
+    int height = 24;
+    int width = 24;
+    std::string characters = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+
+    sf::Image image;
+    if (!image.loadFromFile("font.png")) {
+        std::cout << "Error: Could not load image" << std::endl;
+    }
+
+    for (short i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            posX += width;
+        } else {
+            for (short y = 0; y < height; y++) {
+                for (short x = 0; x < width; x++) {
+                    if (text[i] >= 0 && text[i] <= 95) {
+                        SetPixel((posX + x) / scale, (posY + y) / scale, image.getPixel((characters.find(text[i])) * width + x, y).r / 16);
+                    }
+                }
+            }
+            posX += width;
+        }
+    }
+}
 // void LogToVRAM(std::string text, short posX, short posY, short color) {
 //     for (short i = 0; i < text.length(); i++) {
 //         if (text[i] == ' ') {
@@ -88,23 +113,48 @@ void SetSprite(short posX, short posY, short** sprite) {
 //     }
 // }
 void DrawColorPallete() {
-    SetPixels(0, 0, 10, 10, 0);
-    SetPixels(0, 10, 10, 10, 4);
-    SetPixels(10, 0, 10, 10, 9);
-    SetPixels(10, 10, 10, 10, 11);
-    SetPixels(20, 0, 10, 10, 1);
-    SetPixels(20, 10, 10, 10, 6);
-    SetPixels(30, 0, 10, 10, 10);
-    SetPixels(30, 10, 10, 10, 12);
-    SetPixels(40, 0, 10, 10, 2);
-    SetPixels(40, 10, 10, 10, 7);
-    SetPixels(50, 0, 10, 10, 3);
-    SetPixels(50, 10, 10, 10, 8);
-    SetPixels(60, 0, 10, 10, 13);
-    SetPixels(60, 10, 10, 10, 14);
-    SetPixels(70, 0, 10, 10, 15);
-    SetPixels(70, 10, 10, 10, 5);
-}
+    int addX = 25;
+
+    WriteText("00", 0, 0, 2, 0);
+    SetPixels(addX + 0, 0, 11, 11, 0);
+    SetPixels(addX + 10, 0, 11, 11, 4);
+    WriteText("04", (addX * 2) + (12 * 4), 0, 2, 0);
+
+    WriteText("09", 0, 25, 2, 0);
+    SetPixels(addX + 0, 12, 11, 11, 9);
+    SetPixels(addX + 10, 12, 11, 11, 11);
+    WriteText("11", (addX * 2) + (12 * 4), 25, 2, 0);
+
+    WriteText("01", 0, 50, 2, 0);
+    SetPixels(addX + 0, 24, 11, 11, 1);
+    SetPixels(addX + 10, 24, 11, 11, 6);
+    WriteText("06", (addX * 2) + (12 * 4), 50, 2, 0);
+
+    WriteText("10", 0, 75, 2, 0);
+    SetPixels(addX + 0, 37, 11, 11, 10);
+    SetPixels(addX + 10, 37, 11, 11, 12);
+    WriteText("12", (addX * 2) + (12 * 4), 75, 2, 0);
+
+    WriteText("02", 0, 100, 2, 0);
+    SetPixels(addX + 0, 50, 11, 11, 2);
+    SetPixels(addX + 10, 50, 11, 11, 7);
+    WriteText("07", (addX * 2) + (12 * 4), 100, 2, 0);
+
+    WriteText("03", 0, 125, 2, 0);
+    SetPixels(addX + 0, 62, 11, 11, 3);
+    SetPixels(addX + 10, 62, 11, 11, 8);
+    WriteText("08", (addX * 2) + (12 * 4), 125, 2, 0);
+
+    WriteText("13", 0, 150, 2, 0);
+    SetPixels(addX + 0, 75, 11, 11, 13);
+    SetPixels(addX + 10, 75, 11, 11, 14);
+    WriteText("14", (addX * 2) + (12 * 4), 150, 2, 0);
+
+    WriteText("15", 0, 175, 2, 0);
+    SetPixels(addX + 0, 87, 11, 11, 15);
+    SetPixels(addX + 10, 87, 11, 11, 5);
+    WriteText("05", (addX * 2) + (12 * 4), 175, 2, 0);
+}   
 void DrawLine(short x1, short y1, short x2, short y2, short color) {
     if (x1 < 0 || x1 > 127 || x2 < 0 || x2 > 127 || y1 < 0 || y1 > 127 || y2 < 0 || y2 > 127) {
         std::cout << "Error: Line out of bounds" << std::endl;

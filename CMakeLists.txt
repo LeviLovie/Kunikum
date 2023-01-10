@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.0.0)
-project(kunikum VERSION 0.1.0)
+cmake_minimum_required(VERSION 3.1.0)
+project(kunikum VERSION 0.0.3)
 
 include(CTest)
 enable_testing()
