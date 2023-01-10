@@ -122,8 +122,6 @@ void CompileFile(std::string FileName) {
     while (true)
     {
         Update();
-        // sleep((1000 / FPS) * 1000);
-        // sleep(1 / FPS);
         usleep(1000000 / FPS);
     }
 }
@@ -202,6 +200,102 @@ int WorkOnLine(std::string line, std::string method, int lineNumber, int step) {
                     arg++;
                 }
                 SetPixels(args[0], args[1], args[2], args[3], args[4]);
+            } else {
+                std::cout << WarnColor << lineNumber << ":(INIT) - function end missing: \"" << line << "\"" << ResetColor << std::endl;
+            }
+        } else {
+            std::cout << WarnColor << lineNumber << ":(INIT) - function start missing: \"" << line << "\"" << ResetColor << std::endl;
+        }
+    } else if (line.find("VRAM.PRINT") == 0) {
+        newline = line.substr(10);
+        if (newline.find("(") == 0) {
+            newline = newline.substr(1);
+            if (newline.find(");") == newline.length() - 2) {
+                std::string text;
+                short positions[2];
+                int scale;
+
+                newline = newline.substr(0, newline.length() - 2);
+                text = newline.substr(1);
+                text = text.substr(0, text.find("\""));
+                newline = newline.substr(text.length() + 2 + 1);
+                if (newline.find(" ") == 0) {
+                    newline = newline.substr(1);
+                }
+
+                std::stringstream ss(newline);
+                std::string item;
+                short arg = 0;
+                while (getline(ss, item, ',')) {
+                    std::stringstream token_stream(item);
+                    token_stream >> item;
+                    if (arg == 0) {
+                        positions[1] = std::stoi(item);
+                    } else if (arg == 1) {
+                        positions[0] = std::stoi(item);
+                    } else if (arg == 2) {
+                        scale = std::stoi(item);
+                    }
+                    arg++;
+                }
+                
+                WriteText(text, positions[0], positions[1], scale, 0);
+            } else {
+                std::cout << WarnColor << lineNumber << ":(INIT) - function end missing: \"" << line << "\"" << ResetColor << std::endl;
+            }
+        } else {
+            std::cout << WarnColor << lineNumber << ":(INIT) - function start missing: \"" << line << "\"" << ResetColor << std::endl;
+        }
+    } else if (line.find("string") == 0) {
+        newline = line.substr(6);
+        if (newline.find("=") == 1) {
+            newline = newline.substr(1);
+            if (newline.find(" ") == 0) {
+                newline = newline.substr(1);
+            }
+            if (newline.find("\"") == 0) {
+                newline = newline.substr(1);
+                if (newline.find("\"") == newline.length() - 1) {
+                    newline = newline.substr(0, newline.length() - 1);
+                    std::cout << lineNumber << ":" << method << " - \"" << newline << "\"" << std::endl;
+                } else {
+                    std::cout << WarnColor << lineNumber << ":(INIT) - string end missing: \"" << line << "\"" << ResetColor << std::endl;
+                }
+            } else {
+                std::cout << WarnColor << lineNumber << ":(INIT) - string start missing: \"" << line << "\"" << ResetColor << std::endl;
+            }
+        } else {
+            std::cout << WarnColor << lineNumber << ":(INIT) - string assignment missing: \"" << line << "\"" << ResetColor << std::endl;
+        }
+    } else if (line.find("stirng") == 0) {
+        newline = line.substr(6);
+        std::cout << "string" << std::endl;
+        // if (newline.find("=") == 1) {
+        //     newline = newline.substr(1);
+        //     if (newline.find(" ") == 0) {
+        //         newline = newline.substr(1);
+        //     }
+        //     if (newline.find("0") == 0) {
+        //         newline = newline.substr(1);
+        //         if (newline.find(";") == newline.length() - 1) {
+        //             newline = newline.substr(0, newline.length() - 1);
+        //             std::cout << lineNumber << ":" << method << " - \"" << newline << "\"" << std::endl;
+        //         } else {
+        //             std::cout << WarnColor << lineNumber << ":(INIT) - int end missing: \"" << line << "\"" << ResetColor << std::endl;
+        //         }
+        //     } else {
+        //         std::cout << WarnColor << lineNumber << ":(INIT) - int start missing: \"" << line << "\"" << ResetColor << std::endl;
+        //     }
+        // } else {
+        //     std::cout << WarnColor << lineNumber << ":(INIT) - int assignment missing: \"" << line << "\"" << ResetColor << std::endl;
+        // }
+    } else if (line.find("VRAM.COLORS") == 0) {
+        newline = line.substr(11);
+         if (newline.find("(") == 0) {
+            newline = newline.substr(1);
+            if (newline.find(");") == newline.length() - 2) {
+                newline = newline.substr(0, newline.length() - 2);
+                DrawColorPallete();
             } else {
                 std::cout << WarnColor << lineNumber << ":(INIT) - function end missing: \"" << line << "\"" << ResetColor << std::endl;
             }
